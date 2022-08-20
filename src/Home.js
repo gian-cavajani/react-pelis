@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './SearchForm';
 import Movies from './Movies';
-import { Container, Box } from '@mui/system';
+import {  Box } from '@mui/system';
 const Home = ({ setMode, mode }) => {
   return (
     <Box

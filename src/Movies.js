@@ -1,10 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from './context';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 const url =
   'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png';

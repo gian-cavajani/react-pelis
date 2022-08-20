@@ -16,16 +16,17 @@ import {
   Switch,
   InputAdornment,
 } from '@mui/material';
-import { ModeNight } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
-import TvIcon from '@mui/icons-material/Tv';
-import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import {
+  ModeNight,
+  Favorite,
+  FavoriteBorder,
+  Tv,
+  LocalMovies,
+  ExpandMore,
+} from '@mui/icons-material';
 
-const ExpandMore = styled((props) => {
+const ExpandMoreA = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -106,11 +107,11 @@ const SingleMovie = ({ setMode, mode }) => {
             <span>{title}</span>{' '}
             {type == 'movie' ? (
               <span>
-                <LocalMoviesIcon />
+                <LocalMovies />
               </span>
             ) : (
               <span>
-                <TvIcon />
+                <Tv />
               </span>
             )}
           </Typography>
@@ -127,13 +128,13 @@ const SingleMovie = ({ setMode, mode }) => {
           <hr />
           <Typography p={1} color="text.primary">
             <strong>Plot</strong>
-            <ExpandMore
+            <ExpandMoreA
               expand={expanded}
               onClick={handleExpandClick}
               aria-expanded={expanded}
               aria-label="show more">
-              <ExpandMoreIcon />
-            </ExpandMore>
+              <ExpandMore />
+            </ExpandMoreA>
           </Typography>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
