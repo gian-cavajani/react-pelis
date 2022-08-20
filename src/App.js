@@ -1,10 +1,9 @@
-import Sidebar from './components/Sidebar';
-import Feed from './components/Feed';
-import Rightbar from './components/Rightbar';
-import { Box, createTheme, Stack, ThemeProvider } from '@mui/material';
-import Navbar from './components/Navbar';
-import Add from './components/Add';
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Home from './Home';
+import Movie from './SingleMovie';
 import { useState } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -16,15 +15,17 @@ function App() {
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box bgcolor={'background.default'} color={'text.primary'}>
-        <Navbar />
-        <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar setMode={setMode} mode={mode} />
-          <Feed />
-          <Rightbar />
-        </Stack>
-        <Add />
-      </Box>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home setMode={setMode} mode={mode} />}></Route>
+          <Route
+            path="/movies/:id"
+            element={<Movie setMode={setMode} mode={mode} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
